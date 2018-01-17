@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                    textView.setText("Login Success for \n"+ loginResult.getAccessToken().getUserId()
+                    textView.setText("Login Success for \n"+ loginResult.getAccessToken().getUserId()+"\n"
                     +"\n"+loginResult.getAccessToken().getToken());
 
             }
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        GenerateKeyHash();
+     //   GenerateKeyHash();
     }
 
     @Override
@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
-    public void GenerateKeyHash() {
+    // This is the code for generating SSL key hash. implement this first time and get key in log
+    /*public void GenerateKeyHash() {
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getApplicationContext().getPackageName(),
                     PackageManager.GET_SIGNATURES); //GypUQe9I2FJr2sVzdm1ExpuWc4U= android pc -2 key
@@ -92,5 +93,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
