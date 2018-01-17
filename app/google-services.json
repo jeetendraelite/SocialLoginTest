@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961338161020",
+    "project_id": "demologin-192407"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961338161020:android:a44711d36a3871b7",
+        "android_client_info": {
+          "package_name": "com.example.jeetendraachtani.sociallogintest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961338161020-h43vfcr0fggc7r3vpsmm82u0kj94qqi6.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "961338161020-p1mogl60e9gseo10h1clacbf0u0261ae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jeetendraachtani.sociallogintest",
+            "certificate_hash": "d3da6fd01d8fe0aedc58dd975bfcb55a64b46557"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD22gVdsMkC5S_4Os6u6zZILYreBf8JSVs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
