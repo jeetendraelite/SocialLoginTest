@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SocialLoginTest</string>
     <string name="facebook_app_id">1625333857547497</string>
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">bbhqWOxWdENr41g1y8sQeIEK3</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">2wnAPsuXUIrD38Fjs1ElqofuHmm8h07cXIaHcVQL7ioRBS9ghP</string>
 </resources>

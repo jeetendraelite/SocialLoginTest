@@ -10,6 +10,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -66,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
        // LoginManager.getInstance().logOut(); // we can remove it. this is latest update
 
-
+        // for clearing access token
+       /* if (AccessToken.getCurrentAccessToken() != null) {
+            LoginManager.getInstance().logOut();
+        }*/
 
      //   GenerateKeyHash();
     }
