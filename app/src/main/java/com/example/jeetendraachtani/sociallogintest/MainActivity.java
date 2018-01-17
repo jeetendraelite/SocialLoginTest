@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-// Code for Facebook Login Integration
+// Code for Facebook LOGIN Integration
 
 public class MainActivity extends AppCompatActivity {
 
