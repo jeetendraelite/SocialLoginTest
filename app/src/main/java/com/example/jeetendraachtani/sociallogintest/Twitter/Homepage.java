@@ -19,7 +19,7 @@ public class Homepage extends Activity {
 
         String username = getIntent().getStringExtra("username");
 
-        TextView uname = findViewById(R.id.tv_username);
+        TextView uname = findViewById(R.id.tv_username12);
         uname.setText(username);
 
     }

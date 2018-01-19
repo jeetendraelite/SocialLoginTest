@@ -19,11 +19,11 @@ import butterknife.ButterKnife;
 public class FbUserProfileActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.iv_profile_pic)
+    @BindView(R.id.iv_profile_pic11)
     ImageView profile_pic;
-    @BindView(R.id.tv_email)
+    @BindView(R.id.tv_email11)
     TextView email;
-    @BindView(R.id.tv_username)
+    @BindView(R.id.tv_username11)
     TextView username;
 
 

@@ -2,42 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.jeetendraachtani.sociallogintest.MainActivity">
+    tools:context="com.example.jeetendraachtani.sociallogintest.Facebook.FBLoginActivity">
 
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Login Status"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:id="@+id/textview"
-        android:layout_height="wrap_content" />
-
-    <com.facebook.login.widget.LoginButton
+    <Button
+        android:id="@+id/fb_login"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/fb_login_btn"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:text="Login to FB" />
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/user_linearLayout1"
+        android:id="@+id/user_linearLayout"
         android:layout_marginTop="70dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="120dp"
 
-            android:id="@+id/iv_profile_pic1"/>
+            android:id="@+id/iv_profile_pic"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,19 +39,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_marginTop="20dp"
-                android:id="@+id/tv_username1"
-                android:text="Username Here"
+                android:id="@+id/tv_email"
+                android:text="Email Here"
                 android:textSize="20sp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_marginTop="40dp"
-                android:text="Email Here"
+                android:text="Name Here"
                 android:textSize="20sp"
-                android:id="@+id/tv_email1"
+                android:id="@+id/tv_name"
                 android:layout_height="wrap_content" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:id="@+id/btn_logout"/>
 
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

@@ -8,8 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -22,6 +27,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.MessageDigest;
@@ -33,7 +39,7 @@ import butterknife.ButterKnife;
 
 // Code for FACEBOOK LOGIN Integration
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
    @BindView(R.id.fb_login_btn)
@@ -41,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
 
    @BindView(R.id.textview)
     TextView textView;
+
+   @BindView(R.id.user_linearLayout)
+    LinearLayout layout;
+
+    @BindView(R.id.iv_profile_pic)
+    ImageView profile_pic;
+    @BindView(R.id.tv_email1)
+    TextView email;
+    @BindView(R.id.tv_username1)
+    TextView username;
+
+
 
     CallbackManager callbackManager;
 
@@ -50,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        layout.setVisibility(View.GONE);
+        email.setVisibility(View.GONE);
         callbackManager= CallbackManager.Factory.create();
         loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -72,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
        // LoginManager.getInstance().logOut(); // we can remove it. this is latest update
 
         // for clearing access token
@@ -87,9 +108,30 @@ public class MainActivity extends AppCompatActivity {
                 loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-                        Intent intent = new Intent(MainActivity.this,FbUserProfileActivity.class);
+
+
+
+
+                        layout.setVisibility(View.VISIBLE);
+                       /* Intent intent = new Intent(MainActivity.this,FbUserProfileActivity.class);
                         intent.putExtra("userProfile",object.toString());
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        JSONObject jsonresponse,profile_pic_data,profile_picUrl;
+                        String JsonData= object.toString();
+
+                        Log.d("TAG",JsonData);
+                        try {
+                            jsonresponse= new JSONObject(JsonData);
+                            username.setText(jsonresponse.get("email").toString());
+                            profile_pic_data= new JSONObject(jsonresponse.get("picture").toString());
+                            profile_picUrl = new JSONObject(profile_pic_data.getString("data"));
+                            Glide.with(MainActivity.this).load(profile_picUrl.getString("url")).into(profile_pic);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
                     }
                 }
         );
@@ -103,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode,resultCode,data);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
    /* @Override
