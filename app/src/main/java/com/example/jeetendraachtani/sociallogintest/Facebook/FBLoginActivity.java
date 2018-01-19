@@ -66,6 +66,7 @@ public class FBLoginActivity extends AppCompatActivity {
         profile_pic=findViewById(R.id.iv_profile_pic);
         email=findViewById(R.id.tv_email);
        name=findViewById(R.id.tv_name);
+        layout.setVisibility(View.GONE);
         btn_fb_login = (Button)findViewById(R.id.fb_login);
 
 
@@ -80,7 +81,8 @@ public class FBLoginActivity extends AppCompatActivity {
                     public void onSuccess(LoginResult loginResult) {
                         Log.d("Success","Login");
 
-
+                        layout.setVisibility(View.VISIBLE);
+                      //  btn_fb_login.setVisibility(View.GONE);
                         GraphRequest data_Request = GraphRequest.newMeRequest(
                                 loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                                     @Override
@@ -114,6 +116,9 @@ public class FBLoginActivity extends AppCompatActivity {
                         data_Request.setParameters(permission_param);
                         data_Request.executeAsync();
                         Toast.makeText(FBLoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+
+                        btn_fb_login.setVisibility(View.GONE);
+
                     }
 
 
