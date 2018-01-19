@@ -52,7 +52,7 @@ public class FBLoginActivity extends AppCompatActivity {
     TextView name,email;
     ImageView profile_pic;
     LinearLayout layout;
-    Button btn_fb_login;
+    Button btn_fb_login,btn_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class FBLoginActivity extends AppCompatActivity {
         profile_pic=findViewById(R.id.iv_profile_pic);
         email=findViewById(R.id.tv_email);
        name=findViewById(R.id.tv_name);
+       btn_logout=findViewById(R.id.btn_fb_logout);
         layout.setVisibility(View.GONE);
         btn_fb_login = (Button)findViewById(R.id.fb_login);
 
@@ -135,6 +136,14 @@ public class FBLoginActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.setVisibility(View.GONE);
+                btn_fb_login.setVisibility(View.VISIBLE);
             }
         });
 
