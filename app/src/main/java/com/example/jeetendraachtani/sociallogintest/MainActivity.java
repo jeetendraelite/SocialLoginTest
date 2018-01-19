@@ -15,9 +15,14 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -46,12 +51,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         callbackManager= CallbackManager.Factory.create();
+        loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                    textView.setText("Login Success for \n"+ loginResult.getAccessToken().getUserId()+"\n"
+                  /*  textView.setText("Login Success for \n"+ loginResult.getAccessToken().getUserId()+"\n"
                     +"\n"+loginResult.getAccessToken().getToken());
-
+*/
+                  getUserDetails(loginResult);
             }
 
             @Override
@@ -75,11 +82,40 @@ public class MainActivity extends AppCompatActivity {
      //   GenerateKeyHash();
     }
 
+    private void getUserDetails(LoginResult loginResult) {
+        GraphRequest data_Request = GraphRequest.newMeRequest(
+                loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        Intent intent = new Intent(MainActivity.this,FbUserProfileActivity.class);
+                        intent.putExtra("userProfile",object.toString());
+                        startActivity(intent);
+                    }
+                }
+        );
+        Bundle permission_param = new Bundle();
+        permission_param.putString("fields","id,name,email,picture.width(120).height(120)");
+        data_Request.setParameters(permission_param);
+        data_Request.executeAsync();
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
+   /* @Override
+    protected void onResume() {
+        super.onResume();
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppEventsLogger.deactivateApp(this);
+    }*/
     // This is the code for generating SSL key hash. implement this first time and get key in log
     /*public void GenerateKeyHash() {
         try {
