@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jeetendraachtani.sociallogintest.Facebook.FBLoginActivity;
 import com.example.jeetendraachtani.sociallogintest.Twitter.LoginActivity;
 
 import butterknife.BindView;
@@ -38,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
         switch (view.getId()){
             case R.id.btn_facebook_login:
-                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this,FBLoginActivity.class));
                 break;
             case R.id.btn_google_login:
                 startActivity(new Intent(WelcomeActivity.this,GoogleSignInActivity.class));
