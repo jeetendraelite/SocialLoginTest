@@ -21,6 +21,10 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:id="@+id/tv_twitter_username"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/iv_twitter_profilepic"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
