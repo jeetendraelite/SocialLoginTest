@@ -1,7 +1,6 @@
 package com.example.jeetendraachtani.sociallogintest.Facebook;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.jeetendraachtani.sociallogintest.MainActivity;
 import com.example.jeetendraachtani.sociallogintest.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -23,17 +21,11 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static java.util.Arrays.asList;
 
 public class FBLoginActivity extends AppCompatActivity {
 

@@ -26,7 +26,7 @@ public class FbUserProfileActivity extends AppCompatActivity {
     @BindView(R.id.tv_username11)
     TextView username;
 
-
+// This is done.
     JSONObject response,profile_pic_data,profile_picUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
